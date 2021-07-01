@@ -12,13 +12,13 @@ class PageController
      * @Route("/", name="home")
      */
     public function home() {
-        return new Response('');
+        return new Response('Accueil');
     }
 
     /**
      * @Route("/mention", name="mention")
      */
     public function mention() {
-        var_dump('Mention légales'); die;
+        return new Response('Mention légales');
     }
 }

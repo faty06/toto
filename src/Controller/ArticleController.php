@@ -3,19 +3,27 @@
 
 namespace App\Controller;
 
+
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 class ArticleController
 {
-    //Route est une annotation = ici on appel le chemin du dossier la class articleController
     /**
-     * @Route("/articles", name="articles")
+     * @Route("/article", name="article")
      */
-    public function articles() {
-       return new Response('liste Articles');
-       // Response = il s'agit de la reponse du requete http que le serveur envoie au Client (navigateur)
+    public function article()
+    {
+        return new Response('Bonbon');
+    }
+
+    /**
+     * utilisation du système de wildcard permet d'affichier "variable",
+     * "id", "name du art" dns l'url afin de remplacer ?="variable"
+     * @Route("/article/{id}", name="articleShow")
+     */
+    public function articShow($id)
+    {
+        return new Response($id);
     }
 }
-
-?>

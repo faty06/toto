@@ -4,10 +4,12 @@
 namespace App\Controller;
 
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-class ArticleController
+class ArticleController extends AbstractController
+//tjrs mettre l'extends AbstractController
 {
     /**
      * @Route("/article", name="article")
@@ -23,7 +25,7 @@ class ArticleController
      * "id", "name du art" dns l'url afin de remplacer ?="variable"
      * @Route("/article/{id}", name="articleShow")
      */
-    public function articShow($id)
+    public function articleShow($id)
     {
         //ici je crée un tableau comme j'avais récuperé la bdd
         $articles = [
@@ -48,10 +50,16 @@ class ArticleController
                 "id" => 4
             ],
         ];
-            //cet variable permet la recupe la wildcard
-            $article = $articles[$id];
+            //cet variable permet la recupe la wildcard "$id"
+            //$article = $articles[$id];
 
 
-            return new Response($article['title']); //ici je recupere le titre de mon tableau
+            //
+            return $this->render('article_show.html.twig', [
+                'article' => $articles[$id]
+            ]);
+            //la Methode "render  extends AbstractController" permet de recuperer un fichier "twig" qui
+            // converti en html puis il envoie une "Responce" HTTP au "Client"
     }
+
 }

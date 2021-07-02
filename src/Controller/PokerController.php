@@ -51,7 +51,7 @@ class PokerController extends AbstractController
             return new Response('Bienvenue Chez Poker Man');
         } else {
             //sinon: l'age user est < 18 il va avoir un message "Merci de Revenir dans 50ans"
-            return $this->render('test_poker.html');
+            return $this->render('test_poker.html.twig');
             //La methode render permet d'envyer vers une page html
         }
     }

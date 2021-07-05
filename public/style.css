@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    background: #dff3ed;
+}
+
+nav {
+    background-color: #056868;
+}
+
+ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style:none;
+}
+
+li{
+    color: white;
+}

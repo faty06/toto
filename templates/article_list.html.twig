@@ -1,0 +1,26 @@
+//Cette function me permet de recuperer le fichier de bass qui sera identique
+//à tte les pgs html => remplace incluide et il est meilleur qu'incluide, car on peut mettre des blocks pour
+//personnaliser les pgs
+{% extends 'base.html.twig'%}
+
+//ici le block main permet de remplir la partie titre
+{% block title %}
+    Les articles
+{% endblock title %}
+
+//ici le block main permet de remplir la partie main
+{% block main %}
+    {% for article in articles %}
+        <article>
+            <h1>{{article.title}}</h1>
+            <p>{{article.content}}</p>
+            <P>{{article.id}}</P>
+        </article>
+    {% endfor %}
+{% endblock main %}
+
+//ici le block main permet de remplir la partie footer
+{% block textfooter %}
+<h2>la vie n'est rien</h2>
+<p>Donc profite à max de ton entourage</p>
+{% endblock textfooter %}
